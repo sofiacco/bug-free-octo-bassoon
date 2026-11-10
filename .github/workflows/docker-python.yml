@@ -1,0 +1,20 @@
+name: Docker con Python
+
+on: push
+
+jobs:
+  build-python:
+    runs-on: ubuntu-latest
+
+    container:
+      image: python:3.12
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Verificar Python
+        run: python --version
+
+      - name: Ejecutar aplicación
+        run: python app.py
